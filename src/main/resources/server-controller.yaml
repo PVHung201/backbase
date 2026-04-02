@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: Server API
+  version: 1.0.0
+servers:
+  - url: http://localhost:9090/api/v1
+    description: Local server
+paths:
+  /server:
+    get:
+      summary: Get server name
+      operationId: getServerName
+      tags:
+        - server-controller
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerNameResponse'
+        default:
+          description: false
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    ServerNameResponse:
+      type: object
+      properties:
+        serverName:
+          type: string
+          example: "server-1"
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: The reason of error
+
+
+
