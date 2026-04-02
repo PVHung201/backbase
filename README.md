@@ -16,3 +16,24 @@ https://github.com/Backbase/stream-services/blob/master/api/stream-product-catal
     </servers>
 
 </settings>
+
+
+@Bean
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+@Service
+public class ServiceBClient {
+
+    private final RestTemplate restTemplate;
+
+    public ServiceBClient(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    public String getDataFromB() {
+        String url = "http://localhost:8081/api/data";
+
+        return restTemplate.getForObject(url, String.class);
+    }
+}
