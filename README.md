@@ -35,5 +35,9 @@ public class ServiceBClient {
         String url = "http://localhost:8081/api/data";
 
         return restTemplate.getForObject(url, String.class);
+
+
+
+        https://openapiprocessor.io/maven/1.0.0.M2/index.html?utm_source=chatgpt.com
     }
 }
